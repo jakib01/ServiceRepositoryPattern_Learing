@@ -43,6 +43,8 @@
                     <th>Name <i class="fa fa-sort"></i></th>
                     <th>Email </th>
                     <th>Phone No. <i class="fa fa-sort"></i></th>
+                    <th>test-1 <i class="fa fa-sort"></i></th>
+                    <th>test-2 <i class="fa fa-sort"></i></th>
                     <th>Actions</th>
                 </tr>
                 </thead>
@@ -53,6 +55,8 @@
                     <td>{{$data->name}}</td>
                     <td>{{$data->email}}</td>
                     <td>{{$data->phone_no}}</td>
+                    <td>{{$data->created_at}}</td>
+                    <td>{{$data->updated_at}}</td>
                     <td>
                         <a href="#" class="view" title="View" data-toggle="tooltip"><i class="material-icons">&#xE417;</i></a>
                         <a href="#" class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>

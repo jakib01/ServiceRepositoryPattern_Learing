@@ -2,16 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
+
 use App\Models\UserInfo;
+use App\Repositories\UserInfoRepository;
 use Illuminate\Http\Request;
 
 class UserInfoController extends Controller
 {
+
+    protected $userInfoTableData;
+    public function __construct(UserInfoRepository $data){
+        $this->userInfoTableData = $data;
+    }
+
     public function index(){
-        $userInfo = UserInfo::get();
+        $userInfo = $this->userInfoTableData->userInfoTableData();
         return view('welcome',compact('userInfo'));
     }
+
     public function store(Request $request)
     {
         $request->validate([
