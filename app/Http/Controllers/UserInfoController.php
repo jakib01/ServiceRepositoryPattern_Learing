@@ -16,9 +16,10 @@ class UserInfoController extends Controller
     }
 
     public function index(){
-        $userInfo = $this->userInfoTableData->userInfoTableData();
+        $userInfo = $this->userInfoTableData->UserInfoTableData();
         return view('welcome',compact('userInfo'));
     }
+
 
     public function store(Request $request)
     {

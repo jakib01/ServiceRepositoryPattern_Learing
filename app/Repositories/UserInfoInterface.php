@@ -3,7 +3,7 @@ namespace App\Repositories;
 
 interface UserInfoInterface{
 
-    public function userInfoTableData();
+    public function UserInfoTableData();
     public function get($id);
     public function store(array $data);
     public function update($id, array $data);

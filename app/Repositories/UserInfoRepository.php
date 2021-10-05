@@ -1,11 +1,10 @@
 <?php
 namespace App\Repositories;
-
 use App\Models\UserInfo;
 
 class UserInfoRepository implements UserInfoInterface{
 
-    public function userInfoTableData(){
+    public function UserInfoTableData(){
         return UserInfo::get();
     }
     public function get($id){
