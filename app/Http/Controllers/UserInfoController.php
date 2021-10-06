@@ -23,22 +23,25 @@ class UserInfoController extends Controller
 
     public function store(Request $request)
     {
-
-//        dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => 'email',
             'phone_no' => 'required'
         ]);
 
-        $this->userInfoTableData->store($request->all()); //userInfoTableData this is an object and store is a method
+        $this->userInfoTableData->userInfoStore($request->all()); //userInfoTableData this is an object and userInfoStore is a method
 
         return back()->with('status', 'User Info successfully added');
     }
 
-//    public function edit(Test $test){
-//        return view('welcome', compact(''));
-//    }
+    public function edit($id){
+//        dd($id);
+//        $singleUserInfoData = $this->userInfoTableData->get($id); //$this->userInfoTableData used to call get() method
+        $singleUserInfoData = UserInfo::find($id);; //$this->userInfoTableData used to call get() method
+//        dd($singleUserInfoData);
+        return view('edit', compact('singleUserInfoData'));
+
+    }
 
 
     public function update(Request $request, Test $test){

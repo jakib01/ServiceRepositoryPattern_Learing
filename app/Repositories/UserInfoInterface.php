@@ -5,7 +5,7 @@ interface UserInfoInterface{
 
     public function UserInfoTableData();
     public function get($id);
-    public function store(array $data);
+    public function userInfoStore(array $data);
     public function update($id, array $data);
     public function delete($id);
 
