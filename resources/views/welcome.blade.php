@@ -22,6 +22,56 @@
     </script>
 </head>
 <body>
+
+
+{{--add model--}}
+<div class="modal fade" id="addUserInfo" tabindex="-1" aria-labelledby="addSupplerModel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 35% !important;">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add User Information</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form method="POST">
+                @csrf
+                <div class="modal-body">
+
+                    <div class="form-group row mb-2">
+                        <label for="userName" class="col-sm-2 col-form-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="userName" name="userName" placeholder="Name">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-2">
+                        <label for="userEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Email">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-2">
+                        <label for="userPhoneNo" class="col-sm-2 col-form-label">phone No</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="userPhoneNo" name="userPhoneNo" placeholder="Phone No.">
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">{{ __('Save changes') }}</button>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+{{--add model end--}}
+
+
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -29,6 +79,11 @@
                 <div class="row">
                     <div class="col-sm-8"><h2>Customer <b>Details</b></h2></div>
                     <div class="col-sm-4">
+
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                data-bs-target="#addUserInfo" >Add
+                        </button>
+
                         <div class="search-box">
                             <i class="material-icons">&#xE8B6;</i>
                             <input type="text" class="form-control" placeholder="Search&hellip;">

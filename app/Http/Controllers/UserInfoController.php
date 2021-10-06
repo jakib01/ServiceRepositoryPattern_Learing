@@ -25,11 +25,11 @@ class UserInfoController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'email',
             'phone_no' => 'required'
         ]);
 
-        UserInfo::create($request->all());
+        $this->userInfoTableData->store($request->all());
 
         return back()->with('status', 'User Info successfully added');
     }

@@ -11,7 +11,7 @@ class UserInfoRepository implements UserInfoInterface{
         return "somethings";
     }
     public function store(array $data){
-        return "somethings";
+        return UserInfo::create($data);
     }
     public function update($id, array $data){
         return "somethings";
