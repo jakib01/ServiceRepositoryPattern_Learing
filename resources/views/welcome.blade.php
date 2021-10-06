@@ -33,28 +33,28 @@
                 <h5 class="modal-title" id="exampleModalLabel">Add User Information</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST">
+            <form method="POST" action="{{ route('store') }}">
                 @csrf
                 <div class="modal-body">
 
                     <div class="form-group row mb-2">
-                        <label for="userName" class="col-sm-2 col-form-label">Name</label>
+                        <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="userName" name="userName" placeholder="Name">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                         </div>
                     </div>
 
                     <div class="form-group row mb-2">
-                        <label for="userEmail" class="col-sm-2 col-form-label">Email</label>
+                        <label for="email" class="col-sm-2 col-form-label">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="Email">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                         </div>
                     </div>
 
                     <div class="form-group row mb-2">
-                        <label for="userPhoneNo" class="col-sm-2 col-form-label">phone No</label>
+                        <label for="phone_no" class="col-sm-2 col-form-label">phone No</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="userPhoneNo" name="userPhoneNo" placeholder="Phone No.">
+                            <input type="text" class="form-control" id="phone_no" name="phone_no" placeholder="Phone No.">
                         </div>
                     </div>
 
@@ -73,6 +73,22 @@
 
 
 <div class="container-xl">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @else
+        @if(Session::has('status'))
+            <p class="alert {{Session::get('alert-class', 'alert-success') }}"
+               style="text-align: center">{{Session::get('status')}}</p>
+        @endif
+    @endif
+
+
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="table-title">

@@ -23,13 +23,15 @@ class UserInfoController extends Controller
 
     public function store(Request $request)
     {
+
+//        dd($request->all());
         $request->validate([
             'name' => 'required',
             'email' => 'email',
             'phone_no' => 'required'
         ]);
 
-        $this->userInfoTableData->store($request->all());
+        $this->userInfoTableData->store($request->all()); //userInfoTableData this is an object and store is a method
 
         return back()->with('status', 'User Info successfully added');
     }
